@@ -69,15 +69,9 @@ s20xxxx3@u.tsukuba.ac.jp
 > Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process 
 ```
 
-```powershell
-> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process 
-```
+## Microsft Teams と連携
 
-## 自動追加スクリプトを作成
-
-### グループ ID を調べる
-
-グループ ID とはチームに割り振られた ID のことです。
+ここでは Microsoft Teams PowerShell モジュールと Microsoft Teams を連携する作業を行います。
 
 `Connect-MicrosoftTeams`を入力するとポップアップが表示されるのでログインをします。
 
@@ -87,6 +81,12 @@ s20xxxx3@u.tsukuba.ac.jp
 
 以下のようにポップアップが出てきて Microsoft Teams の連携をするためにサインインが求められるので、サインインします。
 ![ポップアップで表示されるログイン画面](https://user-images.githubusercontent.com/45098934/181068979-e9f51c88-922c-46aa-abc6-4681a1acf85b.png)
+
+## 自動追加スクリプトを作成
+
+### グループ ID を調べる
+
+グループ ID とはチームに割り振られた ID のことです。
 
 PowerShell で以下のコマンドを入力することでチーム ID を調べることができます。   
 `-User`オプションには自分のアカウントのメールアドレスを入れてください。自分が所属しているチームのグループ ID が取得できます。
