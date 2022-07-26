@@ -65,12 +65,10 @@ PowerShell で以下のコマンドを入力することでチーム ID を調�
  
 ### スクリプトをダウンロード、修正
 
-以下のスクリプトを保存します。同じものが[ここ](https://exmaple.com)から取得できます。
-ここではファイル名を`bulk-add-member.ps1`とします。 
+以下のスクリプトを作成します。
 Teams ID と CSV のフルパスを設定するのを忘れないでください。
 
 ```powershell
-
 $teamId = "<TeamsID>"
 $csvPath = "<CSV のフルパス>"
 
@@ -80,6 +78,12 @@ Import-Csv -Path $csvPath | foreach {
     Write-Output "Done"; 
     Start-Sleep 10
 }
+```
+
+このスクリプトは以下のようにしてダウンロードすることもできます。
+
+```powershell
+> curl https://raw.githubusercontent.com/HosokawaR/teams-script/main/add-bulk-member.ps1
 ```
 
 ## スクリプトを実行
