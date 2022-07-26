@@ -123,7 +123,7 @@ Import-Csv -Path $csvPath | foreach {
 このスクリプトは以下のようにしてダウンロードすることもできます。
 
 ```powershell
-> curl https://raw.githubusercontent.com/HosokawaR/teams-script/main/add-bulk-member.ps1
+> curl https://raw.githubusercontent.com/HosokawaR/teams-script/main/bulk-add-member.ps1
 ```
 
 ## スクリプトを実行
