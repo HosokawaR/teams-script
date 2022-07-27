@@ -1,17 +1,17 @@
 # PowerShell を用いた Microsoft Teams のチームへの自動一括追加のやり方
 
 本ドキュメントは PowerShell を用いた Microsoft Teams のチームへの自動一括追加のやり方について解説したものです。
-学生・社員を特定のチームに一括で追加したい場合などに活用してください。  
+学生・社員を特定のチームに一括で追加したい場合などに活用してください。
 
 また以下の方法でエラーが出た場合は PR か r@hosokawa.dev まで連絡をいただけると幸いです。
 
 ## 前提条件
 
- - Windows 11 (10) を使用している
-   - 筆者が Windwos 11 Home で確認したというだけで Windows 10 でも動作すると思います
- - チームに追加したいメンバーのメールアドレスが分かっている
- - あなたが追加したいチームの管理者である
-   - ご自身でチームを作成した場合はおそらく管理者になっているはずです
+- Windows 11 (10) を使用している
+  - 筆者が Windwos 11 Home で確認したというだけで Windows 10 でも動作すると思います
+- チームに追加したいメンバーのメールアドレスが分かっている
+- あなたが追加したいチームの管理者である
+  - ご自身でチームを作成した場合はおそらく管理者になっているはずです
 
 ## 実行手順
 
@@ -65,7 +65,7 @@ s20xxxx3@u.tsukuba.ac.jp
 それが面倒な場合は`-Scope CurrentUser`を使用して現在のユーザに対して恒久的に権限を与えてください。
 
 ```powershell
-> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process 
+> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 ```
 
 ## Microsft Teams と連携
@@ -87,19 +87,19 @@ s20xxxx3@u.tsukuba.ac.jp
 
 グループ ID とはチームに割り振られた ID のことです。
 
-PowerShell で以下のコマンドを入力することでチーム ID を調べることができます。   
+PowerShell で以下のコマンドを入力することでチーム ID を調べることができます。  
 `-User`オプションには自分のアカウントのメールアドレスを入れてください。自分が所属しているチームのグループ ID が取得できます。
 
 ```powershell
 > Get-Team -User s2xxxxxx@u.tsukuba.ac.jp  # チーム名と ID の一覧を取得
-GroupId                              DisplayName       
--------                              -----------       
-2ef068eb-dea5-476d-98dc-e6059874d59d 共通科目情報，...  
-ce80767c-06de-4009-a4c4-c86f723efc01 フレッシュマン...  
-432ca0b3-f219-4089-ba21-cf520bed18f8 微分積分B          
-75f03c09-be9b-45d0-846d-a085f54916af GA13101_情報メ... 
-87291ee5-608f-4ac0-9857-609f87dba60b GA12101_知能と... 
-458d7f8b-4cc0-46f6-b9f2-e98bc7bf28cd 経済学の最前線...  
+GroupId                              DisplayName
+-------                              -----------
+2ef068eb-dea5-476d-98dc-e6059874d59d 共通科目情報，...
+ce80767c-06de-4009-a4c4-c86f723efc01 フレッシュマン...
+432ca0b3-f219-4089-ba21-cf520bed18f8 微分積分B
+75f03c09-be9b-45d0-846d-a085f54916af GA13101_情報メ...
+87291ee5-608f-4ac0-9857-609f87dba60b GA12101_知能と...
+458d7f8b-4cc0-46f6-b9f2-e98bc7bf28cd 経済学の最前線...
 ```
 
 ### スクリプトをダウンロード、修正
@@ -110,12 +110,12 @@ Teams ID と CSV のフルパスを設定するのを忘れないでください
 
 ```powershell
 $groupId = "<GroupID>"     # ex) 00000000-0000-0000-0000-000000000000
-$csvPath = "<CSV のパス>"   # ex) .\emails.txt
+$csvPath = "<CSV のパス>"   # ex) .\emails.csv
 
 Connect-MicrosoftTeams
 Import-Csv -Path $csvPath | ForEach-Object {
     Add-TeamUser -GroupId $groupId -User $_.email;
-    Write-Output "Added $($_.email)"; 
+    Write-Output "Added $($_.email)";
     Start-Sleep 10;
 }
 ```
@@ -131,7 +131,7 @@ Import-Csv -Path $csvPath | ForEach-Object {
 その後スクリプトを起動します。
 
 ```powershell
-> powershell .\bulk-add-menber.ps1   
+> powershell .\bulk-add-menber.ps1
 ```
 
 ## 確認

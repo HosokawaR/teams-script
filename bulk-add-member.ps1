@@ -1,5 +1,5 @@
 $groupId = "<GroupID>"     # ex) 00000000-0000-0000-0000-000000000000
-$csvPath = "<CSV のパス>"   # ex) .\emails.txt
+$csvPath = "<CSV のパス>"   # ex) .\emails.csv
 
 Connect-MicrosoftTeams
 Import-Csv -Path $csvPath | ForEach-Object {
