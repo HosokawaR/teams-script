@@ -1,9 +1,9 @@
-$groupId = "<TeamsID>"
-$csvPath = "<CSV のフルパス>"
+$groupId = "<GroupID>"
+$csvPath = "<CSV のパス>"
 
-Import-Csv -Path $csvPath | foreach {
-    Write-Output $_.email;
+Connect-MicrosoftTeams
+Import-Csv -Path $csvPath | ForEach-Object {
     Add-TeamUser -GroupId $groupId -user $_.email;
-    Write-Output "Done"; 
-    Start-Sleep 10
+    Write-Output "Added $($_.email)"; 
+    Start-Sleep 10;
 }

@@ -107,23 +107,24 @@ ce80767c-06de-4009-a4c4-c86f723efc01 フレッシュマン...
 
 以下のスクリプトを作成します。
 Teams ID と CSV のフルパスを設定するのを忘れないでください。
+なお`Start-Sleep 10;`の箇所で待ち時間を短くすると手元の環境では失敗することがありました。
 
 ```powershell
 $groupId = "<GroupID>"
-$csvPath = "<CSV のフルパス>"
+$csvPath = "<CSV のパス>"
 
-Import-Csv -Path $csvPath | foreach {
-    Write-Output $_.email;
+Connect-MicrosoftTeams
+Import-Csv -Path $csvPath | ForEach-Object {
     Add-TeamUser -GroupId $groupId -user $_.email;
-    Write-Output "Done"; 
-    Start-Sleep 10
+    Write-Output "Added $($_.email)"; 
+    Start-Sleep 10;
 }
 ```
 
 このスクリプトは以下のようにしてダウンロードすることもできます。
 
 ```powershell
-> curl https://raw.githubusercontent.com/HosokawaR/teams-script/main/bulk-add-member.ps1
+>  wget https://raw.githubusercontent.com/HosokawaR/teams-script/main/bulk-add-member.ps1 -OutFile bulk-add-member.ps1
 ```
 
 ## スクリプトを実行
@@ -140,3 +141,4 @@ Import-Csv -Path $csvPath | foreach {
 ## 確認
 
 Teams のメンバータブから確認できます。ただし手元で試したときには設定が反映されるまでラグがありました。
+なお場合によっては反映まで 24 - 48 時間かかることもあるそうです。
