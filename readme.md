@@ -1,4 +1,4 @@
-# PowerShell を用いた Microsoft Teams のチームへの自動一括追加のやり方
+# PowerShell を用いた Microsoft Teams のチームへメンバーを自動で一括追加する方法
 
 本ドキュメントは PowerShell を用いた Microsoft Teams のチームへの自動一括追加のやり方について解説したものです。
 学生・社員を特定のチームに一括で追加したい場合などに活用してください。
