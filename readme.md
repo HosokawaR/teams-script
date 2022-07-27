@@ -5,9 +5,6 @@
 
 また以下の方法でエラーが出た場合は PR か r@hosokawa.dev まで連絡をいただけると幸いです。
 
-## 共同著者
-
-
 ## 前提条件
 
  - Windows 11 (10) を使用している
@@ -112,8 +109,8 @@ Teams ID と CSV のフルパスを設定するのを忘れないでください
 なお`Start-Sleep 10;`の箇所で待ち時間を短くすると手元の環境では失敗することがありました。
 
 ```powershell
-$groupId = "<GroupID>"
-$csvPath = "<CSV のパス>"
+$groupId = "<GroupID>"     # ex) 00000000-0000-0000-0000-000000000000
+$csvPath = "<CSV のパス>"   # ex) .\emails.txt
 
 Connect-MicrosoftTeams
 Import-Csv -Path $csvPath | ForEach-Object {
@@ -140,6 +137,7 @@ Import-Csv -Path $csvPath | ForEach-Object {
 ## 確認
 
 Teams のメンバータブから確認できます。ただし手元で試したときには設定が反映されるまでラグがありました。
-なお場合によっては反映まで 24 - 48 時間かかることもあるそうです。
+なお場合によっては反映まで 24 - 48 時間かかることもあるそうです。[^2]
 
 [^1]: https://docs.microsoft.com/ja-jp/previous-versions/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.1
+[^2]: https://docs.microsoft.com/en-us/powershell/module/teams/add-teamuser?view=teams-ps#:~:text=the%20command%20will%20return%20immediately%2C%20but%20the%20teams%20application%20will%20not%20reflect%20the%20update%20immediately.%20the%20change%20can%20take%20between%2024%20and%2048%20hours%20to%20appear%20within%20the%20teams%20client.
