@@ -3,6 +3,8 @@
 本ドキュメントは PowerShell を用いた Microsoft Teams のチームへの自動一括追加のやり方について解説したものです。
 学生・社員を特定のチームに一括で追加したい場合などに活用してください。  
 
+また以下の方法でエラーが出た場合は PR か r@hosokawa.dev まで連絡をいただけると幸いです。
+
 ## 共同著者
 
 
@@ -135,10 +137,9 @@ Import-Csv -Path $csvPath | ForEach-Object {
 > powershell .\bulk-add-menber.ps1   
 ```
 
-[:1] https://docs.microsoft.com/ja-jp/previous-versions/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.1
-
-
 ## 確認
 
 Teams のメンバータブから確認できます。ただし手元で試したときには設定が反映されるまでラグがありました。
 なお場合によっては反映まで 24 - 48 時間かかることもあるそうです。
+
+[^1]: https://docs.microsoft.com/ja-jp/previous-versions/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.1
