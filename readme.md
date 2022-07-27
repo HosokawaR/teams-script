@@ -18,7 +18,7 @@
 ### 全体方針
 
 PowerShell から Microsoft Teams PowerShell モジュールを用いて、CSV に保存されたメールアドレスの情報をもとに任意のチームにメンバーを一括追加します。  
-WEB API 経由で追加する方法などもありますが、今回 Microsoft Teams PowerSHell モジュールを用いる理由は、他の方法と比べて Teams との連携がスムーズなためです。
+WEB API 経由で追加する方法などもありますが、今回 Microsoft Teams PowerShell モジュールを用いる理由は、他の方法と比べて Teams との連携がスムーズなためです。
 
 ### Microsoft Teams PowerShell モジュールをインストール
 
@@ -131,7 +131,7 @@ Import-Csv -Path $csvPath | ForEach-Object {
 その後スクリプトを起動します。
 
 ```powershell
-> powershell .\bulk-add-menber.ps1
+> powershell .\bulk-add-member.ps1
 ```
 
 ## 確認
