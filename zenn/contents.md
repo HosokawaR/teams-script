@@ -5,6 +5,12 @@ title: Microsoft Teams のチームに大量のメンバーをメールアドレ
 本ドキュメントは PowerShell を用いた Microsoft Teams のチームへの自動一括追加のやり方について解説したものです。
 学生・社員を特定のチームに一括で追加したい場合などに活用してください。
 
+---
+
+これは [天久保 Advent Calendar 2022](https://adventar.org/calendars/8233) の 12 日目の記事です。
+
+---
+
 # 背景
 
 Microsoft Teams に一括で大量のメンバーを追加したいことがたまにあります。しかし現在（2022/12/12）の Microsoft Teams の仕組みでは、名前での個別入力か、配布リスト・セキュリティグループでの一括追加しかできません。  
