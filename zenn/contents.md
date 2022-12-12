@@ -96,11 +96,11 @@ h20xxxx3@hosokawa.dev
 
 グループ ID とはチームに割り振られた ID のことです。
 
-PowerShell で以下のコマンドを入力することでチーム ID を調べることができます。  
+PowerShell で以下のコマンドを入力することでグループ ID を調べることができます。  
 `-User`オプションには自分のアカウントのメールアドレスを入れてください。自分が所属しているチームのグループ ID が取得できます。
 
 ```powershell
-> Get-Team -User h2xxxxxx@hosokawa.dev  # チーム名と ID の一覧を取得
+> Get-Team -User h2xxxxxx@hosokawa.dev  # チーム名とグループ ID の一覧を取得
 GroupId                              DisplayName
 -------                              -----------
 2ef068eb-dea5-476d-98dc-e6059874d59d チーム AAAAAAA...
@@ -114,11 +114,11 @@ ce80767c-06de-4009-a4c4-c86f723efc01 チーム BBBBBBB...
 ## スクリプトをダウンロード、修正
 
 以下のスクリプトを作成します。
-Teams ID と CSV のフルパスを設定するのを忘れないでください。
+グループ ID と CSV のフルパスを設定するのを忘れないでください。
 なお`Start-Sleep 10;`の箇所で待ち時間を短くすると手元の環境では失敗することがありました。
 
 ```powershell
-$groupId = "<GroupID>"     # ex) 00000000-0000-0000-0000-000000000000
+$groupId = "<グループ ID>"     # ex) 00000000-0000-0000-0000-000000000000
 $csvPath = "<CSV のパス>"   # ex) .\emails.csv
 
 Connect-MicrosoftTeams
